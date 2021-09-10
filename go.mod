@@ -1,4 +1,4 @@
-module uuid
+module github.com/kumojin/go-uuid
 
 go 1.15
 
