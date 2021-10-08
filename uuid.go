@@ -18,6 +18,7 @@ type UUID struct {
 	Bytes [UUIDSize]byte
 	Valid bool
 }
+
 func NewV1() UUID {
 	v1 := uuid.NewV1()
 	u := UUID{
