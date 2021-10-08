@@ -22,6 +22,12 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Run gofmt
+        id: gofmt
+        run: echo "::set-output name=GOFMT_RESULT::$(gofmt -l .)"
+      - name: Check gofmt errors
+        if: steps.gofmt.outputs.GOFMT_RESULT != ''
+        run: exit 1
       - name: Test
         run: go test --cover -v ./...
       - name: Build
