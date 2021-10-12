@@ -13,4 +13,3 @@ func (a AnyUUID) Match(v driver.Value) bool {
 	}
 	return len(b) == 16
 }
-

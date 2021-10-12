@@ -24,4 +24,3 @@ func TestOrderedUUIDFromUUIDv1ShouldConvertItCorrectly(t *testing.T) {
 	assert.Equal(t, "aaaabbbb-cccc-dddd-1234-567890123456", u.String())
 	assert.Equal(t, "ddddcccc-aaaa-bbbb-1234-567890123456", o.String())
 }
-

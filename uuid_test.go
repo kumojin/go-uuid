@@ -5,6 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 )
+
 const nilUUID = "00000000-0000-0000-0000-000000000000"
 
 func TestUUIDValue(t *testing.T) {
