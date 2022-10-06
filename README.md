@@ -1,24 +1,26 @@
 # go-uuid
 
-A package providing UUID v1, v4 and Ordered UUID with utility interface and fonction
+A package providing UUID v1, v4 and OrderedUUID with utility interface and function.
 
-## What is an OrderedUUID ?
+## What is an OrderedUUID?
 
-It's an UUID v1 where the timestamp part of the uuid is move in the begening of the UUID.
-It's mostly useful when you use them as a primary key or an index in a database like MySQL as the index we now be sorted and all new element should be added on top of the index.
+It is a UUID v1 where the timestamp is positioned at the first part of the uuid.
+It is useful as a primary key or index in a database like MySQL.
+This way, it can be sorted by timestamp, and new elements should be added on top of the index.
 
 ## Utility function?
 
-Yes, the UUID struct has the Scan/Value function that follow the `driver.Valuer` / `driver.Scanner` interface. This let you scan your struct with an UUID right from the database!
-It also add implement the `encoding.TextUnmarshaler` and the `encoding.TextMarshaler` for encoding/decoding.
+Yes, the UUID struct has a Scan/Value function that follows the `driver.Valuer` / `driver.Scanner` interface.
+This allows you to scan your struct with a UUID right from the database!
+Moreover, it is implementing the `encoding.TextUnmarshaler` and the `encoding.TextMarshaler` for encoding and decoding features.
 
-Following UUID formats for decoding are supported:
+### Supported UUID formats for decoding
 ```
-   "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+   "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
    "6ba7b8109dad11d180b400c04fd430c8"
 ```
 
-Supported UUID text representation follows:
+### Supported UUID text representations
 ```
    uuid := canonical | hashlike
    plain := canonical | hashlike
