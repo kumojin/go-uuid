@@ -1,14 +1,20 @@
 package uuid
 
 import (
-	uuid "github.com/satori/go.uuid"
+	"github.com/gofrs/uuid"
 )
 
 // NewOrdered creates a new UUIDv1 and converts it to an OrderedUUID
-//  v1 UUID: aaaabbbb-cccc-dddd-1234-567890123456
-//  transposed: ddddcccc-aaaa-bbbb-1234-567890123456
+//
+//	v1 UUID: aaaabbbb-cccc-dddd-1234-567890123456
+//	transposed: ddddcccc-aaaa-bbbb-1234-567890123456
 func NewOrdered() UUID {
-	u := uuid.NewV1()
+	u, err := uuid.NewV1()
+	if err != nil {
+		return UUID{
+			Valid: false,
+		}
+	}
 
 	return FromUUIDv1(u)
 }

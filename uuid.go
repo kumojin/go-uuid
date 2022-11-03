@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	uuid "github.com/satori/go.uuid"
+	"github.com/gofrs/uuid"
 )
 
 // UUIDSize is the size of the uuid
@@ -20,7 +20,12 @@ type UUID struct {
 }
 
 func NewV1() UUID {
-	v1 := uuid.NewV1()
+	v1, err := uuid.NewV1()
+	if err != nil {
+		return UUID{
+			Valid: false,
+		}
+	}
 	u := UUID{
 		Valid: true,
 	}
@@ -29,7 +34,12 @@ func NewV1() UUID {
 }
 
 func NewV4() UUID {
-	v4 := uuid.NewV4()
+	v4, err := uuid.NewV4()
+	if err != nil {
+		return UUID{
+			Valid: false,
+		}
+	}
 	u := UUID{
 		Valid: true,
 	}
@@ -87,13 +97,16 @@ func (u *UUID) Scan(src interface{}) error {
 
 // UnmarshalText implements the encoding.TextUnmarshaler interface.
 // Following formats are supported:
-//   "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
-//   "6ba7b8109dad11d180b400c04fd430c8"
+//
+//	"6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+//	"6ba7b8109dad11d180b400c04fd430c8"
+//
 // Supported UUID text representation follows:
-//   uuid := canonical | hashlike
-//   plain := canonical | hashlike
-//   canonical := 4hexoct '-' 2hexoct '-' 2hexoct '-' 6hexoct
-//   hashlike := 12hexoct
+//
+//	uuid := canonical | hashlike
+//	plain := canonical | hashlike
+//	canonical := 4hexoct '-' 2hexoct '-' 2hexoct '-' 6hexoct
+//	hashlike := 12hexoct
 func (u *UUID) UnmarshalText(text []byte) (err error) {
 	switch len(text) {
 	case 0:
