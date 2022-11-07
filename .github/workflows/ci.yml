@@ -17,17 +17,16 @@ jobs:
 
     steps:
       - name: Install Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go-version }}
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Run gofmt
-        id: gofmt
-        run: echo "::set-output name=GOFMT_RESULT::$(gofmt -l .)"
-      - name: Check gofmt errors
-        if: steps.gofmt.outputs.GOFMT_RESULT != ''
-        run: exit 1
+        uses: actions/checkout@v3
+      - name: Enforce standard format
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: v1.50.1
+          args: --timeout 3m --enable=gofmt --verbose
       - name: Test
         run: go test --cover -v ./...
       - name: Build

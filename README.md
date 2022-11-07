@@ -1,5 +1,7 @@
 # go-uuid
 
+[![CI](https://github.com/kumojin/go-uuid/actions/workflows/ci.yml/badge.svg)](https://github.com/kumojin/go-uuid/actions/workflows/ci.yml)
+
 A package providing UUID v1, v4 and OrderedUUID with utility interface and function.
 
 ## What is an OrderedUUID?
@@ -15,12 +17,14 @@ This allows you to scan your struct with a UUID right from the database!
 Moreover, it is implementing the `encoding.TextUnmarshaler` and the `encoding.TextMarshaler` for encoding and decoding features.
 
 ### Supported UUID formats for decoding
+
 ```
    "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
    "6ba7b8109dad11d180b400c04fd430c8"
 ```
 
 ### Supported UUID text representations
+
 ```
    uuid := canonical | hashlike
    plain := canonical | hashlike
