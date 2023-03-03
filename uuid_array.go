@@ -3,7 +3,6 @@ package uuid
 import (
 	"database/sql/driver"
 	"encoding/json"
-	"errors"
 	"fmt"
 )
 
@@ -19,7 +18,7 @@ func (a *UUIDArray) Scan(val interface{}) error {
 	case string:
 		return json.Unmarshal([]byte(v), &a)
 	default:
-		return errors.New(fmt.Sprintf("Unsupported type: %T", v))
+		return fmt.Errorf("Unsupported type: %T", v)
 	}
 }
 
