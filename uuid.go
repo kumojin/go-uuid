@@ -4,8 +4,7 @@ import (
 	"database/sql/driver"
 	"encoding/hex"
 	"fmt"
-
-	"github.com/gofrs/uuid"
+	"github.com/gofrs/uuid/v5"
 )
 
 // UUIDSize is the size of the uuid
