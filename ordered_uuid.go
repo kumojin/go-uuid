@@ -1,8 +1,6 @@
 package uuid
 
-import (
-	"github.com/gofrs/uuid"
-)
+import "github.com/gofrs/uuid/v5"
 
 // NewOrdered creates a new UUIDv1 and converts it to an OrderedUUID
 //

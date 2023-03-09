@@ -2,9 +2,9 @@ package uuid
 
 import (
 	"encoding/hex"
+	"github.com/gofrs/uuid/v5"
 	"testing"
 
-	"github.com/gofrs/uuid"
 	"github.com/stretchr/testify/assert"
 )
 
