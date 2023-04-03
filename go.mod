@@ -1,4 +1,4 @@
-module github.com/kumojin/go-uuid
+module github.com/kumojin/go-uuid/v2
 
 go 1.17
 
