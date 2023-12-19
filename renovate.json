@@ -5,6 +5,19 @@
     "schedule:weekly",
     ":automergeStableNonMajor"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^.github/(?:workflows|actions)/.+\\.ya?ml$"
+      ],
+      "matchStrings": [
+        "GOLANGCI_LINT_VERSION: \"(?<currentValue>.*?)\""
+      ],
+      "depNameTemplate": "github.com/golangci/golangci-lint",
+      "datasourceTemplate": "go"
+    }
+  ],
   "golang": {
     "packageRules": [
       {
