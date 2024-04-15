@@ -3,7 +3,7 @@ module github.com/kumojin/go-uuid/v2
 go 1.17
 
 require (
-	github.com/gofrs/uuid/v5 v5.0.0
+	github.com/gofrs/uuid/v5 v5.1.0
 	github.com/stretchr/testify v1.9.0
 )
 
