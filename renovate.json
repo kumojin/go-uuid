@@ -19,12 +19,15 @@
       "datasourceTemplate": "go"
     }
   ],
-  "golang": {
-    "packageRules": [
-      {
-        "matchDatasources": ["golang-version"],
-        "enabled": false
-      }
-    ]
-  }
+  "packageRules": [
+    {
+      "matchCategories": [
+        "golang"
+      ],
+      "matchDatasources": [
+        "golang-version"
+      ],
+      "enabled": false
+    }
+  ]
 }
