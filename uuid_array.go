@@ -18,7 +18,7 @@ func (a *UUIDArray) Scan(val interface{}) error {
 	case string:
 		return json.Unmarshal([]byte(v), &a)
 	default:
-		return fmt.Errorf("Unsupported type: %T", v)
+		return fmt.Errorf("unsupported type: %T", v)
 	}
 }
 
