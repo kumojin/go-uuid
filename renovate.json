@@ -9,8 +9,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "^.github/(?:workflows|actions)/.+\\.ya?ml$"
+      "managerFilePatterns": [
+        "/^.github/(?:workflows|actions)/.+\\.ya?ml$/"
       ],
       "matchStrings": [
         "GOLANGCI_LINT_VERSION: \"(?<currentValue>.*?)\""
