@@ -1,5 +1,9 @@
 # go-uuid
 
+> **DEPRECATED**: This library is deprecated in favor of using [`gofrs/uuid/v5`](https://github.com/gofrs/uuid)
+> directly. UUID v7 ([RFC 9562](https://www.rfc-editor.org/rfc/rfc9562)) provides a standardized replacement for
+> OrderedUUID. See the [migration guide](MIGRATION.md) for details on how to transition.
+
 [![CI](https://github.com/kumojin/go-uuid/actions/workflows/ci.yml/badge.svg)](https://github.com/kumojin/go-uuid/actions/workflows/ci.yml)
 
 A package providing UUID v1, v4 and OrderedUUID with utility interface and function.
@@ -14,7 +18,8 @@ This way, it can be sorted by timestamp, and new elements should be added on top
 
 Yes, the UUID struct has a Scan/Value function that follows the `driver.Valuer` / `driver.Scanner` interface.
 This allows you to scan your struct with a UUID right from the database!
-Moreover, it is implementing the `encoding.TextUnmarshaler` and the `encoding.TextMarshaler` for encoding and decoding features.
+Moreover, it is implementing the `encoding.TextUnmarshaler` and the `encoding.TextMarshaler` for encoding and decoding
+features.
 
 ### Supported UUID formats for decoding
 
